@@ -13,7 +13,7 @@ dependencies:
   visibility_detector: ^0.4.0+2
   screen_brightness: ^1.0.1
   flutter_vlc_player: ^7.4.2
-  youtube_explode_dart: ^2.2.2
+  youtube_explode_dart: ^2.3.0+1
   wakelock_plus: ^1.2.8
 
 dev_dependencies:
