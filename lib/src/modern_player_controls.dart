@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 import 'package:modern_player/modern_player.dart';
@@ -405,7 +406,7 @@ class _ModernPlayerControlsState extends State<ModernPlayerControls> {
     player.removeListener(_listen);
     _hideTimer?.cancel();
     _statelessTimer?.cancel();
-    ScreenBrightness().resetScreenBrightness();
+    ScreenBrightness().resetApplicationScreenBrightness();
   }
 
   void _onDoubleTap(TapDownDetails details) {
@@ -438,7 +439,7 @@ class _ModernPlayerControlsState extends State<ModernPlayerControls> {
       // left, brightness
       if (widget.controlsOptions.enableBrightnessSlider) {
         _dragLeft = true;
-        ScreenBrightness().current.then((v) {
+        ScreenBrightness().application.then((v) {
           setState(() {
             _slidingValue = v;
             _brightness = v;
@@ -473,7 +474,7 @@ class _ModernPlayerControlsState extends State<ModernPlayerControls> {
         brightness += delta;
         brightness = brightness.clamp(0.0, 1.0);
         _brightness = brightness;
-        ScreenBrightness().setScreenBrightness(brightness);
+        ScreenBrightness().setApplicationScreenBrightness(brightness);
         setState(() {
           _slidingValue = brightness;
           _valController.add(brightness!);
